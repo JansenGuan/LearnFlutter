@@ -1,4 +1,6 @@
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:sencondfluuter/Mine/Login/LoginPage.dart';
 
@@ -10,12 +12,12 @@ class HomePage extends StatelessWidget{
 
   void _popLast(BuildContext cont){
     Navigator.pop(cont, RouteSettings(name: "首页返回"));
-    final mediaQData = MediaQuery.of(cont);
-    final screenWith = mediaQData.size.width;
+    var mediaQData = MediaQuery.of(cont);
+    var screenWith = mediaQData.size.width;
     debugPrint('$screenWith');
   }
 
-  /** 跳转 */
+  /// 跳转
   void _pushToSecondPage(BuildContext context) {
     Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
     // Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(), settings: RouteSettings(arguments: 'laizihome')));
@@ -40,8 +42,11 @@ class HomePage extends StatelessWidget{
         child: GestureDetector(
           // child: new Text("登陆"),Image.asset('new_member_country_nodatal_img.png')
           child: new Image(
-            image: AssetImage('hotels_activated.png'),
+            height: 100,
+            width: 100,
+            image: AssetImage('assets/images/hotels_activated.png'),
           ),
+          // child: Image.asset("assets/images/hotels_activated@3x.png"),
           onTap: () => {
             this._pushToSecondPage(context)
           },
