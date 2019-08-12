@@ -20,7 +20,6 @@ class MyApp extends StatelessWidget {
       home: MyHomePage(title: 'Flutter Demo Home Page'),
       routes: {
         '/home': (context) => new HomePage(),
-  
       },
     );
   }
@@ -37,11 +36,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   List<Widget> childPages = [];
   
-  int _counter = 0;
-  int _index = 0;
+  var _counter = 0;
+  var _index = 0;
   void _incrementCounter() {
     setState(() {
       _counter++;
@@ -80,10 +78,10 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.school), title: Text('首页')),
-          BottomNavigationBarItem(icon: Icon(Icons.school), title: Text('探索')),
-          BottomNavigationBarItem(icon: Icon(Icons.school), title: Text('订单')),
-          BottomNavigationBarItem(icon: Icon(Icons.school), title: Text('我的'))
+          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('首页')),
+          BottomNavigationBarItem(icon: Icon(Icons.location_searching), title: Text('探索')),
+          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), title: Text('订单')),
+          BottomNavigationBarItem(icon: Icon(Icons.person), title: Text('我的'))
         ],
         currentIndex: _index,
         fixedColor: Colors.black,
@@ -105,33 +103,3 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-
-
-
-
-/*
-      Center(
-        
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          
-          children: <Widget>[
-            Text(
-              
-              'You have pushed the button this many times:',
-              style: new TextStyle(
-                fontSize: 15,
-                color: Colors.red
-              ),
-            ),
-            
-            Text(
-              
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-            
-          ],
-        ),
-      )
-      */

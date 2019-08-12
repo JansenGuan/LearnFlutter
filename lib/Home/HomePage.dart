@@ -35,8 +35,8 @@ class HomePage extends StatelessWidget{
       ),
 
       body: new Container(
-        height: 200,
-        width: 200,
+        height: 2000,
+        width: MediaQuery.of(context).size.width,
         color: Colors.orange,
         alignment: Alignment.center,
         child: GestureDetector(
