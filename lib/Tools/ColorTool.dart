@@ -10,8 +10,7 @@ class ColorTool{
   /// - [alpha] 透明度(默认1，0-1)
   /// 
   /// 可以输入多种格式的颜色代码，如: 0x000000,0xff000000,#000000
-  static Color hexColor(String hex, {double alpha}){
-
+  static Color hexColor(String hex, {double alpha = 1}){
     String colorStr = hex.toUpperCase();
 
     // colorString未带0xff前缀并且长度为6 如"FFBBCC"
@@ -35,5 +34,4 @@ class ColorTool{
     int blue = color.blue;
     return new Color.fromRGBO(red, green, blue, alpha);
   }
-
 }

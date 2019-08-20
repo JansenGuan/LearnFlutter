@@ -9,7 +9,7 @@ class CartPage extends StatefulWidget{
 class _CartState extends State<CartPage>{
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    
     return Scaffold(
       backgroundColor: Colors.blueAccent,
       appBar: AppBar(
@@ -23,11 +23,26 @@ class _CartState extends State<CartPage>{
           border: Border.all(color: Colors.red, width: 10),
           borderRadius: new BorderRadius.all(const Radius.elliptical(10, 10))
         ),
-        child: new Column(
+        child: _ContainerWidget()
+      ),
+    );
+  }
+}
+
+
+/// flex布局
+/// container decoration 练习
+class _ContainerWidget extends StatelessWidget{
+  _ContainerWidget({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return new Column(
           children: <Widget>[
             new Row(
               children: <Widget>[
                 new Expanded(
+                  
                   child: new Container(
                     height: 30,
                     decoration: new BoxDecoration(
@@ -80,8 +95,6 @@ class _CartState extends State<CartPage>{
               ],
             )
           ],
-        ),
-      ),
-    );
+        );
   }
 }
