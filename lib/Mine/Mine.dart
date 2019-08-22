@@ -28,12 +28,14 @@ class _MineState extends State<MinePage>{
 class _GridViewWidget extends StatelessWidget{
   _GridViewWidget({Key key}) : super(key: key);
 
+  Widget _getWidget(context, index){
+    return null;
+  }
 
   List<Container> _createListContainer(int count){
     return new List<Container>.generate(
       count, 
       (int index) => new Container(
-        
         color: Colors.orange,
         child: new Container(
           constraints: BoxConstraints.tight(
@@ -41,14 +43,30 @@ class _GridViewWidget extends StatelessWidget{
           ),
           color: ColorTool.hexColor('#333333'),
           child: new Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              new Image(
+              new Container(
+                child: new Image(
                   image: AssetImage('assets/iconFrame/icon_frame${index%6}.png'),
+                ),
+                height: 100,
+                width: 100,
+                color: Colors.white,
+                
               ),
-
               new Text("indexpath--$index"),
 
-              new Text("indexpath--$index")
+              new Text(
+                "indexpath--$index",
+                style: new TextStyle(
+                  height: 1,
+                  fontSize: 12,
+                  color: Colors.white,
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.w700
+                ),
+              )
             ],
           )
         ),
@@ -59,11 +77,12 @@ class _GridViewWidget extends StatelessWidget{
   /// item 等宽等高，且内部container无法修改宽高
   Widget _createGridviewWidgetWithExtent(int count){
     return GridView.extent(
-      maxCrossAxisExtent: 100,
+      maxCrossAxisExtent: 150,
       padding: EdgeInsets.all(4.0),
       crossAxisSpacing: 4.0,
       mainAxisSpacing: 4.0,
       children: _createListContainer(count),
+      childAspectRatio: 0.5,
     );
   }
   
@@ -82,7 +101,7 @@ class _GridViewWidget extends StatelessWidget{
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
         crossAxisSpacing: 4,
-        mainAxisSpacing: 4
+        mainAxisSpacing: 4,
       ),
       
       // childrenDelegate: SliverChildListDelegate(
@@ -100,7 +119,16 @@ class _GridViewWidget extends StatelessWidget{
 
               new Text("indexpath--$index"),
 
-              new Text("indexpath--$index")
+              new Text(
+                "indexpath--$index",
+                style: new TextStyle(
+                  // height: 1,
+                  // fontSize: 10,
+                  // color: Colors.white,
+                  // fontFamily: 'Roboto',
+                  // fontWeight: FontWeight.w700
+                )
+              )
             ],
           ),
         )
@@ -108,7 +136,17 @@ class _GridViewWidget extends StatelessWidget{
     );
   }
   
+  Widget _createGridviewWidgetWithBuilder(){
+    return GridView.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 3,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+      ),
 
+      itemBuilder: (context, index) => this._getWidget(context, index)
+    );
+  }
   @override
   Widget build(BuildContext context) {
     // return new Container(
@@ -118,8 +156,8 @@ class _GridViewWidget extends StatelessWidget{
     // );
 
     // return _createGridviewWidgetWithCount(30);
-
-    return _createGridviewWidgetWithCustom(30);
+    return _createGridviewWidgetWithExtent(30);
+    // return _createGridviewWidgetWithCustom(30);
   }
 }
 

@@ -41,14 +41,16 @@ class HomePage extends StatelessWidget{
         alignment: Alignment.center,
         child: GestureDetector(
           // child: new Text("登陆"),Image.asset('new_member_country_nodatal_img.png')
-          child: new Image(
-            height: 100,
-            width: 100,
-            image: AssetImage('assets/images/hotels_activated.png'),
+          child: new Container(
+            height: 30,
+            width: 30,
+            child: new Image(
+              image: AssetImage('assets/images/hotels_activated.png'),
+            ),
           ),
           // child: Image.asset("assets/images/hotels_activated@3x.png"),
-          onTap: () => {
-            this._pushToSecondPage(context)
+          onTap: () {
+            this._pushToSecondPage(context);
           },
         ),
         

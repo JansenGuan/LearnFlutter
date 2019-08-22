@@ -38,24 +38,56 @@ class _LoginState extends State<LoginPage>{
                 child: new Icon(
                   Icons.backspace
                 ),
-                onTap: () => {
-                  this._popPage(context),
+                onTap: (){
+                  this._popPage(context);
                 },
                 
               ),
-              new Container(
-                height: 300,
-                width: 300,
-                color: Colors.red,
-                alignment: Alignment.center,
-                child: new Text('login'),
+              new Stack(
+                
+                children: <Widget>[
+                  new Container(
+                    height: 300,
+                    width: 300,
+                    color: Colors.red,
+                    alignment: Alignment.center,
+                    child: new Text('login'),
+                  ),
+
+                  new ConstrainedBox(
+                    constraints: BoxConstraints.tight(new Size(100, 20)),
+                    child: new Image.asset("assets/iconFrame/icon_frame4.png"),
+                  ),
+                  
+                  // new Container(
+                  //   width: 100,
+                  //   color: Colors.white,
+                  //   alignment: Alignment.topCenter,
+                  //   margin: EdgeInsets.fromLTRB(30, 10, 0, 0),
+                  //   child: new Image.asset("assets/iconFrame/icon_frame4.png"),
+                  // ),
+
+                  new Text(
+                    "123",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600,
+                      fontFamily: 'Roboto'
+
+                    )
+                  
+                  )
+
+                  
+                ],
               )
             ],
           ),
         ),
 
-        onTap: () => {
-          this._clikSuper(context),
+        onTap: (){
+          this._clikSuper(context);
         },
       ),
 
