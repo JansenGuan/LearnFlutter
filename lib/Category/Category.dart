@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sencondfluuter/Tools/ColorTool.dart';
 
 class CategoryPage extends StatefulWidget{
   @override
@@ -18,14 +19,15 @@ class _CategoryState extends State<CategoryPage>{
       body: new Container(
         padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
         height: 300,
-        width: 350,
+        // width: 350,
         color: Colors.orange[500],
         child: new Column(
           children: <Widget>[
             new _MainTitle(),
 
             new Container(
-              padding: EdgeInsets.all(10),
+              margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
+              // padding: EdgeInsets.all(0),
               child: new _SubTitleWidget(),
             ),
 
@@ -35,7 +37,11 @@ class _CategoryState extends State<CategoryPage>{
             ),
 
 
-            new _COOKState()
+            new _COOKState(),
+
+            new _rowTest()
+
+
           ],
         ),
       )
@@ -76,7 +82,6 @@ class _MainTitle extends StatelessWidget{
   }
 }
 
-
 class _StartsWidget extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
@@ -110,7 +115,6 @@ class _StartsWidget extends StatelessWidget{
     );
   }
 }
-
 
 class _COOKState extends StatelessWidget{
   _COOKState();
@@ -166,4 +170,76 @@ class _COOKState extends StatelessWidget{
         )
       );
   }
+}
+
+class _rowTest extends StatelessWidget{
+
+  final _style = TextStyle(
+    fontFamily: 'Roboto',
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    color: ColorTool.hexColor("#323232")
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return new Row(
+      children: <Widget>[
+        Flexible(
+          fit: FlexFit.tight,
+          child: Container(
+            padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+            alignment: Alignment.center,
+            color: Colors.white,
+            child: new Text("机票", style: this._style),
+          ),
+        ),
+
+        Flexible(
+          child: Container(
+            child: new Text("酒店", style: this._style),
+          ),
+        )
+      ],
+    );
+  }
+
+  // @override
+  // Widget build(BuildContext context) {
+  //   // TODO: implement build
+  //   return new Row(
+  //     children: <Widget>[
+  //       Expanded(
+  //         // flex: 2,
+  //         child: Container(
+  //           color: Colors.white,
+  //           child: new Text("机票", style: this._style),
+  //         ),
+  //       ),
+
+  //       Expanded(
+  //         child: Container(
+  //           child: new Text("酒店", style: this._style),
+  //         ),
+  //       )
+  //     ],
+  //   );
+  // }
+
+  // @override
+  // Widget build(BuildContext context) => Row(
+  //   children: <Widget>[
+  //     new Container(
+  //       child: new Text("机票", style: this._style),
+  //       width: 300,
+  //       color: ColorTool.hexColor('#ffffff'),
+  //       alignment: Alignment.center,
+  //     ),
+
+  //     new Container(
+  //       child: new Text("酒店", style: this._style,),
+  //     )
+  //   ],
+  // );
 }
