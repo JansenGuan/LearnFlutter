@@ -13,21 +13,21 @@ class ColorTool{
   static Color hexColor(String hex, {double alpha = 1}){
     String colorStr = hex.toUpperCase();
 
-    // colorString未带0xff前缀并且长度为6 如"FFBBCC"
-    if (!colorStr.startsWith('0XFF') && colorStr.length == 6){
-      colorStr = '0XFF' + colorStr;
-    }
+    if (colorStr.startsWith('0X')) {
+      if (colorStr.length == 8) { // 0xFFFFFF
+        colorStr = colorStr.replaceRange(0, 2, '0XFF');
 
-    // colorString为8位，如0x000000
-    if (colorStr.startsWith('0X') && colorStr.length == 8){
-      colorStr = colorStr.replaceRange(0, 2, '0XFF');
-    }
+      }else if (colorStr.length == 10){ // 0xFF323232
 
-    // colorString为7位，如#000000
-    if (colorStr.startsWith('#') && colorStr.length == 7){
+      }else{
+        assert('颜色十六进制只能为：0xFFFFFF、0xFF323232、#323232' == '0xFFFFFF、0xFF323232、#323232');
+      }
+    }else if (colorStr.startsWith('#') && colorStr.length == 7) { // #323232
       colorStr = colorStr.replaceRange(0, 1, '0XFF');
+    }else{
+      assert('颜色十六进制只能为：0xFFFFFF、0xFF323232、#323232' == '0xFFFFFF、0xFF323232、#323232');
     }
-
+    
     Color color = Color(int.parse(colorStr.toLowerCase()));
     int red = color.red;
     int green = color.green;

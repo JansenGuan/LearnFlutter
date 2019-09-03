@@ -1,5 +1,7 @@
+
 import 'package:flutter/material.dart';
 import 'package:sencondfluuter/Tools/ColorTool.dart';
+import 'package:sencondfluuter/Tools/FrameMath.dart';
 
 class CategoryPage extends StatefulWidget{
   @override
@@ -9,17 +11,24 @@ class CategoryPage extends StatefulWidget{
 class _CategoryState extends State<CategoryPage>{
   @override
   Widget build(BuildContext context) {
+    print(MediaQuery.of(context).padding);
+    ScreenManager.instance.init(context);
+    print("----------");
+    print(ScreenManager.screenScale);
+    print(ScreenManager.pixelRation);
     // TODO: implement build
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: new AppBar(
-        title: Text("探索"),
-      ),
+      // appBar: new AppBar(
+      //   title: Text("探索"),
+      // ),
 
       body: new Container(
-        padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
-        height: 300,
+        margin: EdgeInsets.fromLTRB(ScreenManager.setMath(10), ScreenManager.statuBarHeightDp, 0, 0),
+        padding: EdgeInsets.fromLTRB(0, ScreenManager.setMath(10), 0, 0),
+        height: ScreenManager.setMath(550),
         // width: 350,
+        width: ScreenManager.setMath(730),
         color: Colors.orange[500],
         child: new Column(
           children: <Widget>[
@@ -52,6 +61,7 @@ class _CategoryState extends State<CategoryPage>{
 class _SubTitleWidget extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
+    print(MediaQuery.of(context).padding);
     // TODO: implement build
     return new Text(
       '在第三国转机时需要重新托运行李和办理相关的出入境、过境手续。为了您的顺利出行，请务必核查该国(地区)的官方签证政策。',
@@ -70,6 +80,7 @@ class _SubTitleWidget extends StatelessWidget{
 class _MainTitle extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
+    
     // TODO: implement build
     return new Text(
       'iGola骑鹅旅行',
@@ -77,7 +88,9 @@ class _MainTitle extends StatelessWidget{
         color: Colors.black,
         fontSize: 20,
         fontWeight: FontWeight.w700,
+        backgroundColor: Colors.white,
       ),
+      
     );
   }
 }
@@ -178,7 +191,7 @@ class _rowTest extends StatelessWidget{
     fontFamily: 'Roboto',
     fontSize: 14,
     fontWeight: FontWeight.w400,
-    color: ColorTool.hexColor("#323232")
+    color: ColorTool.hexColor("3232")
   );
 
   @override

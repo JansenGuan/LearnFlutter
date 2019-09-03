@@ -1,5 +1,4 @@
 
-import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -50,46 +49,50 @@ class HomePage extends StatelessWidget{
   /// TextField
   Widget _TextField() => new Padding(
     child: TextField(
-    style: TextStyle(
-      color: ColorTool.hexColor("#323232"),
-      fontFamily: 'Roboto',
-      fontSize: 14,
-      fontWeight: FontWeight.w400,
-    ),
+      style: TextStyle(
+        color: ColorTool.hexColor("#323232"),
+        fontFamily: 'Roboto',
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+      ),
 
-    decoration: InputDecoration(
-      hintText: "hello iGola",
-      hintStyle: TextStyle(
-        color: Colors.white,
-      ),
-      // border: InputBorder.none,
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.all(Radius.circular(3)),
-        borderSide: BorderSide.none,
-      ),
-      contentPadding: const EdgeInsets.all(5),
-      icon: new Container(
-        padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-        margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-        color: Colors.white,
-        child: new Image(
-        height: 20,
-        width: 30,
-        image: AssetImage('assets/images/hotels_activated.png'),
+      decoration: InputDecoration(
+        hintText: "hello iGola",
+        hintStyle: TextStyle(
+          color: Colors.white,
+        ),
+        // border: InputBorder.none,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(3)),
+          borderSide: BorderSide.none,
+        ),
+        contentPadding: const EdgeInsets.all(5),
+        icon: new Container(
+          padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+          margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+          color: Colors.white,
+          child: new Image(
+            height: 20,
+            width: 30,
+            image: AssetImage('assets/images/hotels_activated.png'),
+          ),
+        ),
+        
+        fillColor: Colors.white,
+        filled: true,
       ),
       
-      ),
-      fillColor: Colors.white,
-      filled: true,
-    ),
-    
-    // onChanged: (value){
-    //   print(value);
-    // },
-    controller: controller,
-    focusNode: node
+      // onChanged: (value){
+      //   print(value);
+      // },
+      controller: controller,
+      focusNode: node
     ), 
     padding: EdgeInsets.fromLTRB(30, 30, 30, 0),
+  );
+
+  Widget _Inwalk() => InkWell(
+
   );
 
   Widget _imgGesWidget(context) => new Container(
@@ -133,8 +136,8 @@ class HomePage extends StatelessWidget{
       ),
 
       // body: _getBody()
-      // body: _imgGesWidget(context),
-      body: _TextField(),
+      body: _imgGesWidget(context),
+      // body: _TextField(),
     );
   }
 }
