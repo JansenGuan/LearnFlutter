@@ -191,7 +191,7 @@ class _rowTest extends StatelessWidget{
     fontFamily: 'Roboto',
     fontSize: 14,
     fontWeight: FontWeight.w400,
-    color: ColorTool.hexColor("3232")
+    color: ColorTool.hexColor("#323232")
   );
 
   @override

@@ -1,42 +1,10 @@
 
 import 'package:flutter/material.dart';
 
-/// tabbarItem
-class TabBarItem extends StatefulWidget {
-  
-  TabBarItem(
-    this.selectedIndex,
-    this.index,
-    this.title, 
-    this.nomalImg, 
-    this.selectedImg, 
-    this.normalColor, 
-    this.selectedColor, 
-    {Key key}) : super(key: key);
-  
-   final int selectedIndex;
-   final int index;
-   final String title;
-   final String nomalImg;
-   final String selectedImg;
-   final Color normalColor;
-   final Color selectedColor;
-  @override
-  _TabBarItemState createState() => _TabBarItemState(
-    this.selectedIndex,
-    this.index,
-    this.title, 
-    this.nomalImg, 
-    this.selectedImg, 
-    this.normalColor, 
-    this.selectedColor, 
-  );
-}
-
-/// _TabBarItemState
+/// TabBarItem
 /// -
-class _TabBarItemState extends State<TabBarItem>{
-  _TabBarItemState(
+class TabBarItem extends StatelessWidget{
+  TabBarItem(
     this.selectedIndex,
     this.index,
     this.title, 

@@ -8,6 +8,7 @@ import 'package:sencondfluuter/Mine/Mine.dart';
 import 'package:sencondfluuter/TabBar/TabBarItem.dart';
 import 'package:sencondfluuter/Tools/ColorTool.dart';
 import 'package:flutter/foundation.dart';
+import 'package:sencondfluuter/Tools/FrameMath.dart';
 void main() => runApp(MyApp());
 
 
@@ -131,7 +132,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
   );
   @override
   Widget build(BuildContext context) {
-    
+    ScreenManager.instance..init(context);
     return Scaffold(
       // bottomNavigationBar: BottomNavigationBar(
       //   items: [
@@ -150,13 +151,12 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
       // ),
       
       bottomNavigationBar: new Container(
-        height: 88,
+        height: (49+ScreenManager.bottomBarHeightDp),
         child: TabBar(
           onTap: (index){
             setState(() {
               _index = index;
               _currentSelectedIndex =index;
-              _titles = ['订单', '我的', '首页', '探索'];
             });
           },
           tabs: [

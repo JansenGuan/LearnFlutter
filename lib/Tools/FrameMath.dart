@@ -21,7 +21,7 @@ double frameMath(double number, {bool allowSacling = true}){
 
 
 
-
+/// 使用之前一定得初始化并调用init(context)
 class ScreenManager{
   /// 设计尺寸宽高
   double width;
@@ -29,7 +29,7 @@ class ScreenManager{
   /// 是否允许适配
   bool allowScaling;
   
-  static ScreenManager instance = ScreenManager();
+  static final ScreenManager instance = ScreenManager();
 
   static ScreenManager share() => instance;
 
