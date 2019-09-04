@@ -63,9 +63,15 @@ class ScreenManager{
   static double _statuBarHeight;
   static double get statuBarHeightDp => _statuBarHeight;
 
+  /// 导航条navigation 高度
+  static double get navigationHeightDp => (56+_statuBarHeight);
+
   /// 底部tabbar safe zone dp
   static double _bottomBarHeight;
   static double get bottomBarHeightDp => _bottomBarHeight;
+
+  /// tabBar 高度
+  static double get tabBarHeightDp => (49+_bottomBarHeight);
 
   /// 系统字体缩放比例
   static double _textScale;

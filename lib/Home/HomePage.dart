@@ -2,6 +2,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:sencondfluuter/Home/CustomNagation/NavigationPage.dart';
 import 'package:sencondfluuter/Home/ListTitle/HomeListTitlePage.dart';
 import 'package:sencondfluuter/Mine/Login/LoginPage.dart';
 import 'package:sencondfluuter/Tools/ColorTool.dart';
@@ -28,7 +29,8 @@ class HomePage extends StatelessWidget{
   }
 
   void _pushToTitleList(context){
-    Navigator.push(context, MaterialPageRoute(builder: (context) => HomeListTitlePage()));
+    // Navigator.push(context, MaterialPageRoute(builder: (context) => HomeListTitlePage()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationPage()));
   }
 
   /// Transform

@@ -39,6 +39,7 @@ flutter:
   assets:
     - assets/images/
     - assets/iconFrame/
+    - assets/navigationBarImg/
 
     
   # The following line ensures that the Material Icons font is
