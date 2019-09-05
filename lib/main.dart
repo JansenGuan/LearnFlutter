@@ -121,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
     }
     return items;
   }
-
+  
   /// 初始化tabBar
   Widget _createTabView() =>TabBar(
     tabs: _initItems(),
@@ -130,6 +130,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
     labelColor: Colors.orange[300],
     unselectedLabelColor: Colors.red[300],
   );
+  
   @override
   Widget build(BuildContext context) {
     ScreenManager.instance..init(context);
@@ -216,6 +217,13 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
       ),
        // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    this._controller = null;
+    
   }
 }
 
