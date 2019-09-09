@@ -54,6 +54,7 @@ class _LearnTimerState extends State<LearnTimer>{
     super.dispose();
     this._removeTimer();
   }
+  
 
   @override
   Widget build(BuildContext context) {

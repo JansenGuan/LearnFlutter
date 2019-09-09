@@ -96,5 +96,5 @@ class _HomeListTitleState extends State<HomeListTitlePage>{
       ),
       // child: ,
     );
-  }
+  } 
 }
