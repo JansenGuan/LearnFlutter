@@ -29,10 +29,10 @@ class HttpTool{
                 ErrorCallBack onError
                 }) async{
     
-    var options = new Options(
+    var options = new BaseOptions(
           baseUrl: BaseUrl.rootUrl,
           headers: _headerParas(header),
-          responseType: ResponseType.JSON,
+          responseType: ResponseType.json,
           // queryParameters: para,
           method: method == MethodType.kGET ? 'GET' : 'POST',
           connectTimeout: 45000,
@@ -52,21 +52,21 @@ class HttpTool{
                   String savePath, 
                   { Map<String, dynamic> para, 
                     Map<String, dynamic> header, 
-                    OnDownloadProgress progressHander,
+                    ProgressCallback progressHander,
                     SuccessCallBack onSuccess,
                     ErrorCallBack onError}) async{
 
-    var options = new Options(
+    var options = new BaseOptions(
           baseUrl: BaseUrl.rootUrl,
           headers: _headerParas(header),
-          responseType: ResponseType.JSON,
+          responseType: ResponseType.json,
           contentType: ContentType.json,
           method: method == MethodType.kGET ? 'GET' : 'POST',
           connectTimeout: 45000,
         );
 
     var dio = new Dio(options);
-    return await dio.download(path, savePath, data: para, onProgress: progressHander).then((res){
+    return await dio.download(path, savePath, data: para, onReceiveProgress: progressHander).then((res){
       onSuccess(res);
     }).catchError((err){
       onError(err);
